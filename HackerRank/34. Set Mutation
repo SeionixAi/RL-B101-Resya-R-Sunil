@@ -1,0 +1,35 @@
+Problem:
+
+You are given a set A and N other sets. These N sets are used to perform specific mutation operations on set A.
+
+Your task is to execute the given operations on set A and print the sum of the elements remaining in set A after all operations have been performed.
+
+Input Format
+The first line contains an integer, the number of elements in set A.
+The second line contains the space-separated elements of set A.
+The third line contains an integer N, the number of other sets.
+The next 2 × N lines are grouped into N pairs:
+The first line of each pair contains the operation name and the number of elements in the other set.
+The second line contains the space-separated elements of the other set.
+
+Solution: 
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n= int(input())
+A= set(map(int,input().split()))
+m= int(input())
+
+for _ in range(m):
+    operation,size = input().split()
+    other_set = set(map(int,input().split()))
+    
+    if operation == "intersection_update":
+        A.intersection_update(other_set)
+    elif operation == "update":
+        A.update(other_set)
+    elif operation =="symmetric_difference_update":
+        A.symmetric_difference_update(other_set)
+    elif operation=="difference_update":
+        A.difference_update(other_set)
+    
+print(sum(A))
