@@ -1,0 +1,22 @@
+> PROBLEM:
+You are given N words as input. Your task is to determine how many distinct (unique) words are present. Then, print the number of times each distinct word occurs, maintaining the order in which each word first appeared in the input.
+
+Output Format:
+
+On the first line, print the number of distinct words.
+On the second line, print the occurrence count of each distinct word in the order of their first appearance, with the counts separated by spaces.
+
+> SOLUTION:
+n = int(input())
+
+count = {}
+
+for _ in range(n):
+    word = input()
+    if word in count:
+        count[word] +=1
+    else:
+        count[word] =1
+print(len(count))
+print(*count.values())
+    
